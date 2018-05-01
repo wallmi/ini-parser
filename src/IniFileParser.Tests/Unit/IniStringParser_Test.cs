@@ -3,7 +3,7 @@ using IniParser.Parser;
 using NUnit.Framework;
 
 //todo: those are integration tests
-namespace IniParser.Tests.Unit
+namespace IniParser.Tests.Integration
 {
     [TestFixture, Category("String parsing/writing tests")]
     public class IniStringParser_Test

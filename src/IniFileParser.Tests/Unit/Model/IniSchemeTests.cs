@@ -1,12 +1,12 @@
 ﻿using NUnit.Framework;
 using IniParser.Model.Configuration;
 
-namespace IniFileParser.Tests
+namespace IniParser.Tests.Unit
 {
     [TestFixture]
     public class IniSchemeTests
-    {        [Test]
-        public static void check_cloning()
+    {        
+        [Test] public static void check_cloning()
         {
             var scheme1 = new IniScheme();
             scheme1.CommentString = "/";

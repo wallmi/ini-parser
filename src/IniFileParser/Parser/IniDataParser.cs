@@ -5,7 +5,6 @@ using IniParser.Model;
 using IniParser.Model.Configuration;
 using System.Collections.ObjectModel;
 using System.IO;
-using static IniParser.Parser.StringBuffer;
 
 namespace IniParser.Parser
 {

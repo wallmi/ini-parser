@@ -3,10 +3,8 @@ using NUnit.Framework;
 
 using IniParser.Parser;
 using IniParser.Model;
-using IniParser.Model.Configuration;
 
-// TODO change namespaces and keep consistency (see Unit Test explorer)
-namespace IniFileParser.Tests.Unit.Model
+namespace IniParser.Tests.Unit
 {
     [TestFixture,
     Description("Test of data structures used to hold information retrieved for an INI file")]

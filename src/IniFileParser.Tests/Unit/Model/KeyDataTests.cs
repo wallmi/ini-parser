@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using IniParser.Model;
 using NUnit.Framework;
 
-namespace IniParser.Tests.Unit.Model
+namespace IniParser.Tests.Unit
 {
     [TestFixture, Category("Test of data structures used to hold information retrieved for an INI file")]
     public class KeyDataTests

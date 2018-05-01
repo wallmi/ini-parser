@@ -5,7 +5,7 @@ using NUnit.Framework;
 using IniParser.Exceptions;
 using IniParser.Model.Configuration;
 
-namespace IniFileParser.Tests.Unit.Parser
+namespace IniParser.Tests.Integration
 {
     [TestFixture]
     public class ParserTests

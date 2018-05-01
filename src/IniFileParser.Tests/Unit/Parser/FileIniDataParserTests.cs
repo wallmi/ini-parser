@@ -5,7 +5,7 @@ using IniParser.Parser;
 using System;
 using System.IO;
 
-namespace IniParser.Tests.Unit.Parser
+namespace IniParser.Tests.Integration
 {
     [TestFixture]
     public class FileIniDataParserTests

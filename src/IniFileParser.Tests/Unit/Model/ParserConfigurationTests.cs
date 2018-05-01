@@ -4,7 +4,7 @@ using IniParser.Model.Configuration;
 using IniParser.Parser;
 using NUnit.Framework;
 
-namespace IniParser.Tests.Unit.Configuration
+namespace IniParser.Tests.Unit
 {
     [TestFixture]
     public class ConfigurationTests
