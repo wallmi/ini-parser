@@ -100,12 +100,10 @@ key2 = value5
 mykey1 = value1
 ";
 
-        [Test]
-        public void parse_ini_string_with_custom_configuration()
+        [Test] public void parse_ini_string_with_custom_configuration()
         {
             var parser = new IniDataParser();
-
-            IniParser.Model.Configuration.IniParserConfiguration config = parser.Configuration;
+            var config = parser.Configuration;
 
             parser.Scheme.CommentString = "#";
             parser.Scheme.SectionStartString = "<";
@@ -130,16 +128,15 @@ mykey1 = value1
             Assert.That(section1.Keys["key2"], Is.EqualTo("value5"));
         }
 
-        [Test, Ignore("Ini writing does not belong here")]
-        public void check_ini_writing()
+        [Ignore("Ini writing does not belong here")]
+        [Test] public void check_ini_writing()
         {
             IniData data = new IniDataParser().Parse(iniFileStr);
 
             Assert.That(data.ToString(), Is.EqualTo(iniFileStr));
         }
 
-        [Test, Description("Test for Issue 3: http://code.google.com/p/ini-parser/issues/detail?id=3")]
-        public void allow_keys_with_dots()
+        [Test] public void allow_keys_with_dots()
         {
             string strTest = "[section_issue.3]\nkey.with_dots = value\n";
 
@@ -149,8 +146,7 @@ mykey1 = value1
             Assert.That(data.Sections["section_issue.3"]["key.with_dots"], Is.Not.Null);
         }
 
-        [Test, Description("Test for Issue 4: http://code.google.com/p/ini-parser/issues/detail?id=4")]
-        public void allow_duplicated_keys_in_section()
+        [Test] public void allow_duplicated_keys_in_section()
         {
             string ini_duplicated_keys =
                 @";comentario1
@@ -172,8 +168,7 @@ value1 = 10";
             Assert.That(data.Sections.GetSectionData("seccion1").Keys["value1"], Is.EqualTo("10.6"));
         }
 
-        [Test, Description("Test for Issue 9: http://code.google.com/p/ini-parser/issues/detail?id=9")]
-        public void check_using_another_leading_character_for_comments()
+        [Test] public void check_using_another_leading_character_for_comments()
         {
             string data =
                 @"[test]
@@ -193,8 +188,7 @@ connectionString = Server=sqlserver.domain.com;Database=main;User ID=user;Passwo
                 iniData["test"].GetKeyData("connectionString").Comments[0], Is.EqualTo(" a comment"));
         }
 
-        [Test, Description("Test for Issue 10: http://code.google.com/p/ini-parser/issues/detail?id=10")]
-        public void test_no_exception_is_raised_when_reading_url_like_section_names()
+        [Test] public void test_no_exception_is_raised_when_reading_url_like_section_names()
         {
             string data =
                 @"[http://example.com/page] 
@@ -223,8 +217,7 @@ key3=value3";
             Assert.That(iniData.Global["key3"], Is.EqualTo("value3"));
         }
 
-        [Test, Description("Test for Issue 15: http://code.google.com/p/ini-parser/issues/detail?id=15")]
-        public void allow_duplicated_sections_in_section()
+        [Test] public void allow_duplicated_sections_in_section()
         {
             string data =
                 @"[123_1]
@@ -339,8 +332,7 @@ key=value";
             Assert.That(parsedData.Sections["section~subsection"]["key"], Is.EqualTo("value"));
         }
 
-        [Test, Description("Test for Issue 43 backward compatibility https://github.com/rickyah/ini-parser/issues/32")]
-        public void commentchar_property_works()
+        [Test] public void commentchar_property_works()
         {
             string initest =
                 @"#comment1
@@ -458,8 +450,7 @@ Run=http://192.168.1.88:8139/getsms.aspx?SENDER=@@SENDER@@&FULLSMS=@@FULLSMS@@&S
 
         }
 
-        // Thanks https://github.com/RichardSinden for this issue
-        [Test, Description("Test for Issue 66 - allow comments at end of sectionless file")]
+        [Test]
         public void allow_comments_at_end_of_sectionless_file()
         {
             string iniDataString = @"
@@ -473,6 +464,7 @@ Run=http://192.168.1.88:8139/getsms.aspx?SENDER=@@SENDER@@&FULLSMS=@@FULLSMS@@&S
             var parser = new IniDataParser();
 
             parser.Configuration.AllowKeysWithoutSection = true;
+            parser.Scheme.CommentString = ";";
             var iniData = parser.Parse(iniDataString);
 
             Assert.That(iniData.Global.ContainsKey("value1"));
