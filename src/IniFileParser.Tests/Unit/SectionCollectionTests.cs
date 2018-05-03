@@ -92,7 +92,7 @@ namespace IniParser.Tests.Unit
             Assert.That(sdc.RemoveSection("asdf"), Is.False);
         }
         
-        [Test, Description("Test for Issue 29: http://code.google.com/p/ini-parser/issues/detail?id=29")]
+        [Test]
         public void can_remove_all_properties_from_a_section()
         {
             IniData data = new IniData();

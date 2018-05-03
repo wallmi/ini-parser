@@ -6,11 +6,11 @@ using IniParser.Model;
 
 namespace IniParser.Tests.Unit
 {
-    [TestFixture,
-    Description("Test of data structures used to hold information retrieved for an INI file")]
+    [TestFixture]
     public class INIDataTests
     {
-        [Test] public void parse_comments()
+        [Test]
+        public void parse_comments()
         {
             string iniData = @";comment1
 key1 = 2
@@ -21,7 +21,8 @@ key1 = 2
             Assert.That(data.Global.First().Comments, Is.Not.Empty);
         }
 
-        [Test] public void delete_all_comments()
+        [Test]
+        public void delete_all_comments()
         {
             string iniData = @";comment1
 key1 = 2
@@ -48,7 +49,7 @@ value1 = 10.6";
 
         }
 
-        [Test, Description("Test for Issue 7: http://code.google.com/p/ini-parser/issues/detail?id=7")]
+        [Test]
         public void check_add_keydata_method_using_key_and_value_strings()
         {
             var newData = new IniData();
@@ -59,7 +60,7 @@ value1 = 10.6";
             Assert.That(newData["newSection"]["newKey1"], Is.EqualTo("value1"));
         }
 
-        [Test, Description("Test for Issue 76: https://github.com/rickyah/ini-parser/issues/76")]
+        [Test]
         public void resolve_case_insensitive_names()
         {
 
@@ -95,7 +96,7 @@ value1 = 10.6";
             Assert.That(data["testSection"]["Key2"], Is.EqualTo("value2"));
         }
 
-        [Test, Description("Test for Issue 135: https://github.com/rickyah/ini-parser/issues/135")]
+        [Test]
         public void resolve_case_insensitive_names_in_global()
         {
 

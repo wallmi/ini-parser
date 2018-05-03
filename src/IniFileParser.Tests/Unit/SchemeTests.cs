@@ -4,7 +4,7 @@ using IniParser.Model.Configuration;
 namespace IniParser.Tests.Unit
 {
     [TestFixture, Category("DataModel")]
-    public class IniSchemeTests
+    public class SchemeTests
     {        
         [Test] 
         public void check_deep_clone()
@@ -18,7 +18,7 @@ namespace IniParser.Tests.Unit
         }
         
         [Test]
-        public void TestCommentRegex()
+        public void check_comment_regex_updates()
         {
             var scheme = new IniScheme();
             scheme.CommentString = ";";
@@ -34,8 +34,8 @@ namespace IniParser.Tests.Unit
             Assert.That(strGoodTest4, Does.Not.Match(scheme.CommentRegex.ToString()));
         }
 
-        [Test,]
-        public void TestSectionRegex()
+        [Test]
+        public void check_section_regex_updates()
         {
             var scheme = new IniScheme();
             
@@ -56,8 +56,8 @@ namespace IniParser.Tests.Unit
             Assert.That(strBadTest2, Does.Not.Match(scheme.SectionRegex.ToString()));
         }
 
-        [Test, Description("Test a regular expression for matching a section in an INI file given an specific delimiter")]
-        public void TestNewSectionDelimiter()
+        [Test]
+        public void check_property_regex_updates()
         {
             var scheme = new IniScheme();
                     
