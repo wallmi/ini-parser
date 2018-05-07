@@ -530,7 +530,7 @@ key2 = value2";
         
         
         [Test]
-        public void CheckParseEmptyFileSuccess()
+        public void check_can_parse_empty_file()
         {
             var parser = new IniDataParser();
          
@@ -540,7 +540,7 @@ key2 = value2";
         }
 
         [Test]
-        public void CheckParseGoodFileSuccess()
+        public void check_parsing_simple_file_succeeds()
         {
         string strGoodINIFile = @";comentario1
 ;comentario 2
@@ -557,7 +557,7 @@ value1 = 10.6";
         }
 
         [Test]
-        public void CheckParsingFailure()
+        public void check_parsing_badly_formed_file_fails()
         {
             string strBadINIFile = @"asdfasf [seccion1] fdsafsd
    value2  =   jelou
@@ -577,7 +577,7 @@ value3 = que tal estas
 
 
         [Test]
-        public void CheckCollideSectionNames()
+        public void check_colliding_section_names_throws()
         {
             string strBadSectionINI = @";comentario1
 [seccion1] ;comentario 2
@@ -592,9 +592,9 @@ value2 = 10.6";
         }
 
         [Test]
-        public void CheckCollideKeysNames()
+        public void check_colliding_property_names_throws()
         {
-string strBadKeysINIFile = @";comentario1
+string strBadPropertiesINIFile = @";comentario1
 [seccion1] ;comentario 2
 
 ;valor de control
@@ -602,7 +602,7 @@ value1 = 10.6
 value1 = 10";
 
             var parser = new IniDataParser();
-            Assert.Throws<ParsingException>( () => parser.Parse(strBadKeysINIFile) );
+            Assert.Throws<ParsingException>( () => parser.Parse(strBadPropertiesINIFile) );
 
         }
 
