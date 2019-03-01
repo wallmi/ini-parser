@@ -161,6 +161,18 @@ key = 1
 
 
         }
+        [Test]
+        public void test_adding_new_sections_from_indexer()
+        {
+            var d = new IniData();
+
+            d["section1"]["key1"] = "value1";
+
+            Assert.That(d.Sections.ContainsSection("section1"));
+            Assert.That(d.Sections.GetSectionData("section1").Keys.ContainsKey("key1"));
+            Assert.That(d.Sections.GetSectionData("section1").Keys.GetKeyData("key1").Value, Is.EqualTo("value1"));
+        }
+
     }
 }
 

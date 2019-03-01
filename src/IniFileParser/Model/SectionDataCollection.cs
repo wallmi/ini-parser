@@ -72,10 +72,10 @@ namespace IniParser.Model
         {
             get
             {
-                if ( _sectionData.ContainsKey(sectionName) )
-                    return _sectionData[sectionName].Keys;
-
-                return null;
+                if (!_sectionData.ContainsKey(sectionName) ) {
+                    _sectionData.Add(sectionName, new SectionData(sectionName, _searchComparer));
+                }
+                return _sectionData[sectionName].Keys;
             }
         }
 
